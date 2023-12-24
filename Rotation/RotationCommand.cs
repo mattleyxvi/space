@@ -8,7 +8,8 @@ namespace space.Rotation
 {
     internal class RotationCommand:ICommand
     {
-        private readonly Angle _angle;
-        public RotationCommand() { }
+        private readonly IRotation _angle;
+        public RotationCommand(IRotation angle) => _angle = angle;
+        public void Execute() { _angle.angle += _angle.angspeed; }
     }
 }
